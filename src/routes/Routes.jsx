@@ -1,4 +1,4 @@
-import './routes.css';
+import "./routes.css";
 import {
   BrowserRouter,
   Navigate,
@@ -11,7 +11,7 @@ import ModalStatesContext from "../components/modals/modals-states-context/Modal
 import SignIn from "../pages/signin/SignIn";
 import SignUpPassword from "../pages/signup-password/SignUpPassword";
 import SignUpConfirmation from "../pages/signup-confirmation/SignUpConfirmation";
-import LogIn from "../pages/logIn/LogIn";
+import LogIn from "../pages/login/LogIn";
 import Home from "../pages/home/Home";
 import Clients from "../pages/clients/Clients";
 import ClientDetailsPage from "../pages/client-details/ClientDetails";
