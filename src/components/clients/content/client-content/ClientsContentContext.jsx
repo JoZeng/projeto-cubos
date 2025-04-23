@@ -46,7 +46,7 @@ export const ClientsContentProvider = ({
         clientes.map(async (cliente) => {
           try {
             const resCobrancas = await api.get(
-              `/clientes/cobrancas/${cliente.id}`,
+              `/cobrancas/cliente/${cliente.id}`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -80,11 +80,14 @@ export const ClientsContentProvider = ({
               totalPago,
               totalPendente,
             };
-          } catch (error) {}
+          } catch (error) {
+            console.log("Buscando cobranças para:", cliente);
+            return null;
+          }
         })
       );
 
-      setClients(clientesComStatus);
+      setClients(clientesComStatus.filter(Boolean));
       setTotalPaginas(totalPaginas);
     } catch (error) {
       console.error(

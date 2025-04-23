@@ -3,11 +3,11 @@ import { useClients } from "./ClientsContentContext.jsx";
 import { setItem } from "../../../../utils/storage.jsx";
 import clientsimage from "../../../../assets/clients.svg";
 import filterimage from "../../../../assets/filter.svg";
-import addcharges from "../../../../assets/iconCharges.svg";
+import chargesAdd from "../../../../assets/iconCharges.svg";
 
 export default function ClientsContent({
   openModalAddClient,
-  openModalAddCharges,
+  openModalChargesAdd,
 }) {
   const {
     clients,
@@ -72,7 +72,10 @@ export default function ClientsContent({
                   <div className="clients-content-body-fields-list-values">
                     <div>
                       <button
-                        onClick={() => navigate(`/clientes/${cliente.id}`)}
+                        onClick={() => {
+                          navigate(`/clientes/${cliente.id}`);
+                          setItem("clientId", cliente.id);
+                        }}
                       >
                         {cliente.nome}
                       </button>
@@ -92,15 +95,14 @@ export default function ClientsContent({
                       </div>
                     </div>
                     <div>
-                      <button
+                      <img
                         onClick={() => {
-                          setItem("clientName", cliente.nome);
+                          openModalChargesAdd();
                           setItem("clientId", cliente.id);
-                          openModalAddCharges();
                         }}
-                      >
-                        <img src={addcharges} alt="addcharges" />
-                      </button>
+                        src={chargesAdd}
+                        alt="chargesAdd"
+                      />
                     </div>
                   </div>
                   <hr className="clients-content-divider" />

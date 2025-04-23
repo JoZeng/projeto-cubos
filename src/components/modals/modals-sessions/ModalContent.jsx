@@ -1,5 +1,6 @@
 import "./modal-content.css";
 import ButtonClose from "../../../assets/button-close.svg";
+import alertIcon from "../../../assets/alert.svg";
 
 export default function ModalContent({
   openModalUserEdit,
@@ -84,7 +85,8 @@ export default function ModalContent({
   tenthType,
   tenthError,
 
-  openModalAddCharges,
+  openModalChargesAdd,
+  openModalChargesEdit,
 
   eleventhLabel,
   eleventhClassName,
@@ -125,6 +127,9 @@ export default function ModalContent({
   secondRadioType,
   secondRadioValue,
   secondRadiotext,
+
+  openModalChargesDelete,
+  handleChargesDelete,
 }) {
   return (
     <>
@@ -286,7 +291,7 @@ export default function ModalContent({
                     type="submit"
                     disabled={isSubmitting || isSubmittedSuccessfully}
                   >
-                    Aplicar
+                    {buttonText}
                   </button>
                 </div>
               </form>
@@ -294,7 +299,7 @@ export default function ModalContent({
           </div>
         </div>
       )}
-      {openModalAddCharges && (
+      {(openModalChargesAdd || openModalChargesEdit) && (
         <div className="modal-background">
           <div className="modal-content-add-charges">
             <div className="modal-content-padding">
@@ -387,10 +392,45 @@ export default function ModalContent({
                     type="submit"
                     disabled={isSubmitting || isSubmittedSuccessfully}
                   >
-                    Aplicar
+                    {buttonText}
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+      {openModalChargesDelete && (
+        <div className="modal-background">
+          <div className="modal-content-charges-delete">
+            <div className="modal-content-padding">
+              <div className="modal-header-charges-delete">
+                <img src={alertIcon} alt="alertIcon" />
+                <img
+                  className="modal-content-image-charges-delete"
+                  src={ButtonClose}
+                  alt="Fechar"
+                  onClick={closedModalButton}
+                />
+              </div>
+              <div className="modal-content-charges-delete-section">
+                {" "}
+                <p>Tem certeza que deseja excluir esta cobrança?</p>
+                <div className="modal-content-charges-delete-section-buttons">
+                  <button
+                    onClick={closedModalButton}
+                    className="modal-content-charges-delete-section-buttons-first"
+                  >
+                    Não
+                  </button>
+                  <button
+                    onClick={handleChargesDelete}
+                    className="modal-content-charges-delete-section-buttons-second"
+                  >
+                    Sim
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

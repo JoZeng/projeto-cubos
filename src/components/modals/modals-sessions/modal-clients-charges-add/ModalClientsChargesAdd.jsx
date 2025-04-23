@@ -1,9 +1,9 @@
 import ModalContent from "../ModalContent";
 import { IMaskInput } from "react-imask";
 import { Controller } from "react-hook-form";
-import { useModalClientsAddCharges } from "./ModalClientsAddChargesContext";
+import { useModalClientsChargesAddContext } from "./ModalClientsChargesAddContext";
 
-export default function ModalClientsAddCharges() {
+export default function ModalClientsChargesAdd() {
   const {
     openModal,
     closedModal,
@@ -16,13 +16,13 @@ export default function ModalClientsAddCharges() {
     errors,
     isSubmitting,
     isSubmittedSuccessfully,
-  } = useModalClientsAddCharges();
+  } = useModalClientsChargesAddContext();
 
   return (
     <div>
       <ModalContent
         handleSubmit={handleSubmit(onSubmit)}
-        openModalAddCharges={openModal}
+        openModalChargesAdd={openModal}
         closedModalButton={closedModalButton}
         closedModal={closedModal}
         headerModalText={"Cadastro de cobrança"}
@@ -38,7 +38,7 @@ export default function ModalClientsAddCharges() {
         }}
         thirteenthLabel={"Vencimento*"}
         thirteenthClassName={errors.expirationdate ? "label-errors" : null}
-        thirteenthPlaceholder={"Digite o Status"}
+        thirteenthPlaceholder={"Digite o vencimento"}
         thirteenthType={"date"}
         thirteenthInputProps={{
           ...register("expirationdate", {
@@ -63,20 +63,19 @@ export default function ModalClientsAddCharges() {
               render={({ field }) => (
                 <IMaskInput
                   {...field}
-                  mask="R$num"
+                  mask="R$ num"
                   blocks={{
                     num: {
                       mask: Number,
                       scale: 2,
                       signed: false,
-                      radix: ",",
                       thousandsSeparator: ".",
+                      radix: ",",
                       padFractionalZeros: true,
                       normalizeZeros: true,
-                      mapToRadix: ["."],
+                      unmask: true, // Garantir que o valor seja "desmascarado" para manipulação.
                     },
                   }}
-                  unmask={true}
                   onAccept={(value) => field.onChange(value)}
                 />
               )}

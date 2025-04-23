@@ -24,17 +24,17 @@ function HomeContent() {
     <div className="home-content">
       <HomeCharges
         text1="Cobranças Pagas"
-        value1={chargesPaid.toLocaleString("pt-BR", {
+        value1={(chargesPaid / 100).toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
         })}
         text2="Cobranças Vencidas"
-        value2={chargesOutOfDate.toLocaleString("pt-BR", {
+        value2={(chargesOutOfDate / 100).toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
         })}
         text3="Cobranças Previstas"
-        value3={chargesPlanned.toLocaleString("pt-BR", {
+        value3={(chargesPlanned / 100).toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
         })}
@@ -51,7 +51,7 @@ function HomeContent() {
           clientsname={paidList.map((c) => c.nome_cliente)}
           idnumber={paidList.map((c) => `#${c.id}`)}
           valuechargesamount={paidList.map((c) =>
-            (Number(c.valor) || 0).toLocaleString("pt-BR", {
+            ((Number(c.valor) || 0) / 100).toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })
@@ -69,7 +69,7 @@ function HomeContent() {
           clientsname={outOfDateList.map((c) => c.nome_cliente)}
           idnumber={outOfDateList.map((c) => `#${c.id}`)}
           valuechargesamount={outOfDateList.map((c) =>
-            (Number(c.valor) || 0).toLocaleString("pt-BR", {
+            ((Number(c.valor) || 0) / 100).toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })
@@ -87,7 +87,7 @@ function HomeContent() {
           clientsname={plannedList.map((c) => c.nome_cliente)}
           idnumber={plannedList.map((c) => `#${c.id}`)}
           valuechargesamount={plannedList.map((c) =>
-            (Number(c.valor) || 0).toLocaleString("pt-BR", {
+            ((Number(c.valor) || 0) / 100).toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })
@@ -107,7 +107,7 @@ function HomeContent() {
           clientsname={clientsInadimplentes.map((c) => c.nome_cliente)}
           idnumber={clientsInadimplentes.map((c) => `#${c.id}`)}
           valuechargesamount={clientsInadimplentes.map((c) =>
-            (Number(c.totalPendente) || 0).toLocaleString("pt-BR", {
+            ((Number(c.totalPendente) || 0) / 100).toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })
@@ -124,7 +124,7 @@ function HomeContent() {
           clientsname={clientsEmDia.map((c) => c.nome_cliente)}
           idnumber={clientsEmDia.map((c) => `#${c.id}`)}
           valuechargesamount={clientsEmDia.map((c) =>
-            (Number(c.totalPago) || 0).toLocaleString("pt-BR", {
+            ((Number(c.totalPago) || 0) / 100).toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })

@@ -27,7 +27,7 @@ export default function HomeContentContextProvider({ children }) {
       try {
         const token = getItem("token");
 
-        const responseCharges = await api.get("/clientes/cobrancas", {
+        const responseCharges = await api.get("/cobrancas", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const cobrancas = responseCharges.data || [];

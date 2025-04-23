@@ -4,10 +4,10 @@ import Header from "../../components/header/Header";
 import ClientsContent from "../../components/clients/content/client-content/ClientsContent";
 import ModalUserEdit from "../../components/modals/modals-sessions/modal-user-edit/ModalUserEdit";
 import ModalClientsAdd from "../../components/modals/modals-sessions/modal-clients-add/ModalClientsAdd";
-import ModalClientsCharges from "../../components/modals/modals-sessions/modal-clients-add-charges/ModalClientsAddCharges";
+import ModalClientsChargesAdd from "../../components/modals/modals-sessions/modal-clients-charges-add/ModalClientsChargesAdd";
 import { useModalStates } from "../../components/modals/modals-states-context/ModalStatesContext";
 import { ClientsContentProvider } from "../../components/clients/content/client-content/ClientsContentContext";
-import { ModalClientsAddChargesProvider } from "../../components/modals/modals-sessions/modal-clients-add-charges/ModalClientsAddChargesContext";
+import { ModalClientsChargesAddContextProvider } from "../../components/modals/modals-sessions/modal-clients-charges-add/ModalClientsChargesAddContext";
 import { ModalClientsAddProvider } from "../../components/modals/modals-sessions/modal-clients-add/ModalClientsAddContext";
 import { ModalUserEditProvider } from "../../components/modals/modals-sessions/modal-user-edit/ModalUserEditContext";
 import useRefreshTrigger from "../../hooks/useRefreshTrigger";
@@ -24,12 +24,10 @@ export default function Clients() {
     handleModalClientsAdd,
     closeModalClientsAdd,
 
-    openModalAddCharges,
-    setOpenModalAddCharges,
-    handleModalAddCharges,
-    closeModalAddCharges,
-
-    refreshData,
+    openModalChargesAdd,
+    setOpenModalChargesAdd,
+    handleModalChargesAdd,
+    closeModalChargesAdd,
   } = useModalStates();
   const { refreshTrigger, handleUpdateData } = useRefreshTrigger();
   return (
@@ -44,7 +42,7 @@ export default function Clients() {
         >
           <ClientsContent
             openModalAddClient={handleModalClientsAdd}
-            openModalAddCharges={handleModalAddCharges}
+            openModalChargesAdd={handleModalChargesAdd}
           />
         </ClientsContentProvider>
       </div>
@@ -55,14 +53,14 @@ export default function Clients() {
       >
         <ModalClientsAdd />
       </ModalClientsAddProvider>
-      <ModalClientsAddChargesProvider
-        openModal={openModalAddCharges}
-        closedModal={setOpenModalAddCharges}
-        closedModalButton={closeModalAddCharges}
+      <ModalClientsChargesAddContextProvider
+        openModal={openModalChargesAdd}
+        closedModal={setOpenModalChargesAdd}
+        closedModalButton={closeModalChargesAdd}
         onUpdate={handleUpdateData}
       >
-        <ModalClientsCharges />
-      </ModalClientsAddChargesProvider>
+        <ModalClientsChargesAdd />
+      </ModalClientsChargesAddContextProvider>
       <ModalUserEditProvider
         openModal={openModaUserEdit}
         closedModal={setOpenModaUserEdit}

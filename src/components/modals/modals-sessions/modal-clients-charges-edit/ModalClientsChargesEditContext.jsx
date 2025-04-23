@@ -4,9 +4,9 @@ import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { getItem } from "../../../../utils/storage";
 
-export const ModalClientsAddChargesContext = createContext();
+export const ModalClientsChargesEditContext = createContext();
 
-export const ModalClientsAddChargesProvider = ({
+export const ModalClientsChargesEditContextProvider = ({
   children,
   openModal,
   closedModal,
@@ -45,29 +45,39 @@ export const ModalClientsAddChargesProvider = ({
 
   useEffect(() => {
     if (isSubmittedSuccessfully) {
-      toast.success("Enviado com sucesso!");
+      toast.success("Editado com sucesso!");
     }
   }, [isSubmittedSuccessfully]);
 
   const onSubmit = async (data) => {
+    console.log(data);
     if (isSubmitting || isSubmittedSuccessfully) return;
 
     const token = getItem("token");
+    const chargeId = getItem("cobrancaId");
 
     if (!token) {
-      console.error("Token não encontrado!");
+      console.error("Token not found!");
       return;
     }
 
     try {
       setIsSubmitting(true);
 
-      const response = await api.post(
-        "/clientes/cobrancas",
+      const valueWithoutMask = data.value
+        .replace("R$", "")
+        .replace(/\./g, "")
+        .replace(",", "");
+
+      console.log("Value without mask: ", valueWithoutMask);
+
+      console.log(data);
+      const response = await api.put(
+        `/cobrancas/${chargeId}`,
         {
           descricao: data.description,
           vencimento: data.expirationdate,
-          valor: data.value,
+          valor: valueWithoutMask,
           status: data.status,
           cliente_id: getItem("clientId"),
         },
@@ -75,7 +85,6 @@ export const ModalClientsAddChargesProvider = ({
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-
       if (response.status >= 200 && response.status < 300) {
         reset({
           description: "",
@@ -89,14 +98,14 @@ export const ModalClientsAddChargesProvider = ({
         if (onUpdate) onUpdate();
       }
     } catch (error) {
-      console.error("Erro ao enviar dados:", error.response.data);
+      console.error("Error sending data:", error.response.data);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <ModalClientsAddChargesContext.Provider
+    <ModalClientsChargesEditContext.Provider
       value={{
         openModal,
         closedModal,
@@ -112,10 +121,10 @@ export const ModalClientsAddChargesProvider = ({
       }}
     >
       {children}
-    </ModalClientsAddChargesContext.Provider>
+    </ModalClientsChargesEditContext.Provider>
   );
 };
 
-export const useModalClientsAddCharges = () => {
-  return useContext(ModalClientsAddChargesContext);
+export const useModalClientsChargesEditContext = () => {
+  return useContext(ModalClientsChargesEditContext);
 };

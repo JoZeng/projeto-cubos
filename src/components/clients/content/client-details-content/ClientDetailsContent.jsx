@@ -4,12 +4,23 @@ import ClientDetailsCharge from "./client-details-charges/ClientDetailsCharge";
 
 export default function ClientDetailsContent({
   handleModalClientsEdit,
-  handleModalAddCharges,
+  handleModalChargesAdd,
+  handleModalChargesEdit,
+  handleModalChargesDelete,
 }) {
+  console.log({
+    handleModalChargesAdd,
+    handleModalChargesEdit,
+    handleModalChargesDelete,
+  });
   return (
     <div className="client-details">
       <ClientDetailsData handleModalClientsEdit={handleModalClientsEdit} />
-      <ClientDetailsCharge handleModalAddCharges={handleModalAddCharges} />
+      <ClientDetailsCharge
+        handleModalChargesAdd={handleModalChargesAdd}
+        handleModalChargesEdit={handleModalChargesEdit}
+        handleModalChargesDelete={handleModalChargesDelete}
+      />
     </div>
   );
 }

@@ -18,7 +18,7 @@ export const ClientDetailsContentContextProvider = ({
 }) => {
   const [openModalClientsEdit, setOpenModalClientsEdit] = useState(false);
   const [client, setClient] = useState({});
-  const [cobrancas, setCobrancas] = useState([]);
+  const [charges, setCharges] = useState([]);
 
   const { id } = useParams();
 
@@ -42,23 +42,23 @@ export const ClientDetailsContentContextProvider = ({
   const fetchCobrancas = useCallback(async () => {
     try {
       const token = getItem("token");
-      const response = await api.get(`/clientes/cobrancas/${id}`, {
+      const response = await api.get(`/cobrancas/cliente/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
       if (Array.isArray(response.data)) {
-        setCobrancas(response.data);
+        setCharges(response.data);
       } else if (response.data && Array.isArray(response.data.cobrancas)) {
-        setCobrancas(response.data.cobrancas);
+        setCharges(response.data.cobrancas);
       } else {
-        setCobrancas([]);
+        setCharges([]);
       }
     } catch (error) {
       if (error.response?.status === 404) {
         console.log(`Nenhuma cobrança encontrada para o cliente ID: ${id}`);
-        setCobrancas([]);
+        setCharges([]);
       } else {
         console.error("Erro ao carregar cobranças:", error);
       }
@@ -78,7 +78,7 @@ export const ClientDetailsContentContextProvider = ({
         openModalClientsEdit,
         setOpenModalClientsEdit,
         client,
-        cobrancas,
+        charges,
         handleUpdateData,
       }}
     >

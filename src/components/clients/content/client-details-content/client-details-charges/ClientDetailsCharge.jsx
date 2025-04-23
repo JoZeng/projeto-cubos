@@ -2,9 +2,14 @@ import "./client-details-charge.css";
 import iconEdit from "../../../../../assets/iconEdit.svg";
 import iconDelete from "../../../../../assets/iconDelete.svg";
 import { useClientDetailsContentContext } from "../ClientDetailsContentContext";
+import { setItem } from "../../../../../utils/storage";
 
-export default function ClientDetailsCharge({ handleModalAddCharges }) {
-  const { cobrancas } = useClientDetailsContentContext();
+export default function ClientDetailsCharge({
+  handleModalChargesAdd,
+  handleModalChargesEdit,
+  handleModalChargesDelete,
+}) {
+  const { client, charges } = useClientDetailsContentContext();
 
   return (
     <div className="client-details-content">
@@ -12,7 +17,15 @@ export default function ClientDetailsCharge({ handleModalAddCharges }) {
         <div className="client-details-charges">
           <div className="client-details-charges-header">
             <p>Cobranças do Cliente</p>
-            <button onClick={handleModalAddCharges}>Adicionar Cobranças</button>
+            <button
+              onClick={() => {
+                handleModalChargesAdd();
+                setItem("clientName", client.nome);
+                setItem("clientId", client.id);
+              }}
+            >
+              Adicionar Cobranças
+            </button>
           </div>
         </div>
         <div className="client-details-table">
@@ -25,13 +38,18 @@ export default function ClientDetailsCharge({ handleModalAddCharges }) {
             <span></span>
           </div>
 
-          {cobrancas.map((cobranca) => (
+          {charges.map((cobranca) => (
             <div key={cobranca.id} className="client-details-table-row">
               <span>{cobranca.id}</span>
               <span>
                 {new Date(cobranca.vencimento).toLocaleDateString("pt-BR")}
               </span>
-              <span>R${cobranca.valor}</span>
+              <span>
+                {(cobranca.valor / 100).toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </span>
               {(cobranca.status === "vencida" && (
                 <span className="client-details-charges-outofdate">
                   {" "}
@@ -54,8 +72,22 @@ export default function ClientDetailsCharge({ handleModalAddCharges }) {
                   </span>
                 ))}
               <span>{cobranca.descricao}</span>
-              <img  src={iconEdit} alt="iconEdit" />
-              <img src={iconDelete} alt="iconDelete" />
+              <img
+                onClick={() => {
+                  handleModalChargesEdit();
+                  setItem("cobrancaId", cobranca.id);
+                }}
+                src={iconEdit}
+                alt="iconEdit"
+              />
+              <img
+                onClick={() => {
+                  handleModalChargesDelete();
+                  setItem("cobrancaId", cobranca.id);
+                }}
+                src={iconDelete}
+                alt="iconDelete"
+              />
             </div>
           ))}
         </div>

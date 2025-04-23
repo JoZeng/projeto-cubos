@@ -1,5 +1,3 @@
-// src/pages/ClientDetails/ClientDetails.jsx
-
 import "./client-details.css";
 import Header from "../../components/header/Header";
 import SideBar from "../../components/sidebar/SideBar";
@@ -9,8 +7,12 @@ import { ClientDetailsContentContextProvider } from "../../components/clients/co
 import { ModalClientsEditProvider } from "../../components/modals/modals-sessions/modal-clients-edit/ModalClientsEditContext";
 import { useModalStates } from "../../components/modals/modals-states-context/ModalStatesContext";
 import useRefreshTrigger from "../../hooks/useRefreshTrigger";
-import ModalClientsAddCharges from "../../components/modals/modals-sessions/modal-clients-add-charges/ModalClientsAddCharges";
-import { ModalClientsAddChargesProvider } from "../../components/modals/modals-sessions/modal-clients-add-charges/ModalClientsAddChargesContext";
+import ModalClientsChargesAdd from "../../components/modals/modals-sessions/modal-clients-charges-add/ModalClientsChargesAdd";
+import { ModalClientsChargesAddContextProvider } from "../../components/modals/modals-sessions/modal-clients-charges-add/ModalClientsChargesAddContext";
+import ModalClientsChargesDelete from "../../components/modals/modals-sessions/modal-clients-charges-delete/ModalClientsChargesDelete";
+import { ModalClientsChargesDeleteContextProvider } from "../../components/modals/modals-sessions/modal-clients-charges-delete/ModalClientsChargesDeleteContext";
+import ModalClientsChargesEdit from "../../components/modals/modals-sessions/modal-clients-charges-edit/ModalClientsChargesEdit";
+import { ModalClientsChargesEditContextProvider } from "../../components/modals/modals-sessions/modal-clients-charges-edit/ModalClientsChargesEditContext";
 
 export default function ClientDetails() {
   const {
@@ -18,10 +20,18 @@ export default function ClientDetails() {
     setOpenModalClientsEdit,
     handleModalClientsEdit,
     closeModalClientsEdit,
-    openModalAddCharges,
-    setOpenModalAddCharges,
-    handleModalAddCharges,
-    closeModalAddCharges,
+    openModalChargesAdd,
+    setOpenModalChargesAdd,
+    handleModalChargesAdd,
+    closeModalChargesAdd,
+    openModalChargesEdit,
+    setOpenModalChargesEdit,
+    handleModalChargesEdit,
+    closeModalChargesEdit,
+    openModalChargesDelete,
+    setOpenModalChargesDelete,
+    handleModalChargesDelete,
+    closeModalChargesDelete,
   } = useModalStates();
 
   const { refreshTrigger, handleUpdateData } = useRefreshTrigger();
@@ -38,18 +48,20 @@ export default function ClientDetails() {
         >
           <ClientDetailsContent
             handleModalClientsEdit={handleModalClientsEdit}
-            handleModalAddCharges={handleModalAddCharges}
+            handleModalChargesAdd={handleModalChargesAdd}
+            handleModalChargesDelete={handleModalChargesDelete}
+            handleModalChargesEdit={handleModalChargesEdit}
           />
         </ClientDetailsContentContextProvider>
       </div>
-      <ModalClientsAddChargesProvider
-        openModal={openModalAddCharges}
-        closedModal={setOpenModalAddCharges}
-        closedModalButton={closeModalAddCharges}
+      <ModalClientsChargesAddContextProvider
+        openModal={openModalChargesAdd}
+        closedModal={setOpenModalChargesAdd}
+        closedModalButton={closeModalChargesAdd}
         onUpdate={handleUpdateData}
       >
-        <ModalClientsAddCharges />
-      </ModalClientsAddChargesProvider>
+        <ModalClientsChargesAdd />
+      </ModalClientsChargesAddContextProvider>
       <ModalClientsEditProvider
         openModal={openModalClientsEdit}
         closedModal={setOpenModalClientsEdit}
@@ -58,6 +70,24 @@ export default function ClientDetails() {
       >
         <ModalClientsEdit />
       </ModalClientsEditProvider>
+
+      <ModalClientsChargesEditContextProvider
+        openModal={openModalChargesEdit}
+        closedModal={setOpenModalChargesEdit}
+        closedModalButton={closeModalChargesEdit}
+        onUpdate={handleUpdateData}
+      >
+        <ModalClientsChargesEdit />
+      </ModalClientsChargesEditContextProvider>
+
+      <ModalClientsChargesDeleteContextProvider
+        openModal={openModalChargesDelete}
+        closedModal={setOpenModalChargesDelete}
+        closedModalButton={closeModalChargesDelete}
+        onUpdate={handleUpdateData}
+      >
+        <ModalClientsChargesDelete />
+      </ModalClientsChargesDeleteContextProvider>
     </div>
   );
 }

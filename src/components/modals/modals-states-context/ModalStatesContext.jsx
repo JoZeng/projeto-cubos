@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const ModalStatesContext = createContext();
 
 export default function ModalStatesProvider({ children }) {
-  const [openModaUserEdit, setOpenModaUserEdit] = useState(false);
+  const [openModalUserEdit, setOpenModaUserEdit] = useState(false);
   const handleModaUserEdit = () => setOpenModaUserEdit(true);
   const closeModaUserEdit = () => setOpenModaUserEdit(false);
 
@@ -15,9 +15,17 @@ export default function ModalStatesProvider({ children }) {
   const handleModalClientsEdit = () => setOpenModalClientsEdit(true);
   const closeModalClientsEdit = () => setOpenModalClientsEdit(false);
 
-  const [openModalAddCharges, setOpenModalAddCharges] = useState(false);
-  const handleModalAddCharges = () => setOpenModalAddCharges(true);
-  const closeModalAddCharges = () => setOpenModalAddCharges(false);
+  const [openModalChargesAdd, setOpenModalChargesAdd] = useState(false);
+  const handleModalChargesAdd = () => setOpenModalChargesAdd(true);
+  const closeModalChargesAdd = () => setOpenModalChargesAdd(false);
+
+  const [openModalChargesEdit, setOpenModalChargesEdit] = useState(false);
+  const handleModalChargesEdit = () => setOpenModalChargesEdit(true);
+  const closeModalChargesEdit = () => setOpenModalChargesEdit(false);
+
+  const [openModalChargesDelete, setOpenModalChargesDelete] = useState(false);
+  const handleModalChargesDelete = () => setOpenModalChargesDelete(true);
+  const closeModalChargesDelete = () => setOpenModalChargesDelete(false);
 
   const [refreshData, setRefreshData] = useState(false);
 
@@ -26,7 +34,7 @@ export default function ModalStatesProvider({ children }) {
   return (
     <ModalStatesContext.Provider
       value={{
-        openModaUserEdit,
+        openModalUserEdit,
         setOpenModaUserEdit,
         handleModaUserEdit,
         closeModaUserEdit,
@@ -41,10 +49,20 @@ export default function ModalStatesProvider({ children }) {
         handleModalClientsEdit,
         closeModalClientsEdit,
 
-        openModalAddCharges,
-        setOpenModalAddCharges,
-        handleModalAddCharges,
-        closeModalAddCharges,
+        openModalChargesAdd,
+        setOpenModalChargesAdd,
+        handleModalChargesAdd,
+        closeModalChargesAdd,
+
+        openModalChargesEdit,
+        setOpenModalChargesEdit,
+        handleModalChargesEdit,
+        closeModalChargesEdit,
+
+        openModalChargesDelete,
+        setOpenModalChargesDelete,
+        handleModalChargesDelete,
+        closeModalChargesDelete,
 
         refreshData,
         handleUpdateData,

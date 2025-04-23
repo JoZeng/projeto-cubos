@@ -31,7 +31,8 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.modal-content-add-charges {
+.modal-content-add-charges,
+.modal-content-charges-delete {
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -58,32 +59,33 @@
   padding-bottom: 20px;
 }
 
-.modal-content-image-user-edit {
-  display: flex;
-  position: relative;
-  left: 70px;
-  bottom: 12px;
-}
-
-.modal-content-image-client-add {
-  display: flex;
-  position: relative;
-  left: 120px;
-  bottom: 12px;
-}
-
-.modal-content-image-client-edit {
-  display: flex;
-  position: relative;
-  left: 120px;
-  bottom: 12px;
-}
-
+.modal-content-image-user-edit,
+.modal-content-image-client-add,
+.modal-content-image-client-edit,
 .modal-content-image-add-charges {
   display: flex;
   position: relative;
-  left: 100px;
   bottom: 12px;
+}
+
+.modal-content-image-user-edit {
+  left: 70px;
+}
+
+.modal-content-image-client-add,
+.modal-content-image-client-edit {
+  left: 120px;
+}
+
+.modal-content-image-add-charges {
+  left: 100px;
+}
+
+.modal-content-image-charges-delete {
+  display: flex;
+  position: relative;
+  bottom: 80px;
+  left: 170px;
 }
 
 .modal-content-padding form {
@@ -205,4 +207,46 @@
 .inputs-modal-radio input {
   height: 24px;
   width: 24px;
+}
+
+.modal-header-charges-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.modal-content-charges-delete-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+}
+
+.modal-content-charges-delete-section p {
+  color: #cc7800;
+}
+
+.modal-content-charges-delete-section-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.modal-content-charges-delete-section-buttons-first,
+.modal-content-charges-delete-section-buttons-second {
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.modal-content-charges-delete-section-buttons-first {
+  color: #ae1100;
+  background-color: #f2d6d0;
+}
+
+.modal-content-charges-delete-section-buttons-second {
+  color: #034a2a;
+  background-color: #acd9c5;
 }
