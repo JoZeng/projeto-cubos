@@ -34,7 +34,7 @@ export default function Clients() {
     <div className="clients-page">
       <SideBar />
       <div className="clients-page-content">
-        <Header text={"Cobranças"} handleModalUserEdit={handleModaUserEdit} />
+        <Header text={"Clientes"} handleModalUserEdit={handleModaUserEdit} />
         <hr />
         <ClientsContentProvider
           refreshTrigger={refreshTrigger}

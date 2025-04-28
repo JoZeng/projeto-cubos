@@ -25,7 +25,7 @@ export default function ClientsContent({
       <div className="clients-content-header">
         <div className="clients-content-header-firstsession">
           <img src={clientsimage} alt="clientsimage" />
-          <div>Clients</div>
+          <div>Clientes</div>
         </div>
         <div className="clients-content-header-secondsession">
           <button

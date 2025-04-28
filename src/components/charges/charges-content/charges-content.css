@@ -1,0 +1,201 @@
+.charges-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.charges-content-header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 24px;
+}
+
+.charges-content-header-firstsession {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  width: 154px;
+  font-size: 26px;
+  font-weight: 600;
+  gap: 16px;
+}
+
+.charges-content-header-secondsession {
+  display: flex;
+  height: 34px;
+  gap: 16px;
+}
+
+.charges-content-header-secondsession-firstbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 266px;
+  color: #f8f8f9;
+  background-color: #da0175;
+  border-radius: 8px;
+}
+
+.charges-content-header-secondsession-input {
+  display: flex;
+  border-radius: 8px;
+  width: 318px;
+  padding-left: 6px;
+  background-position: right;
+  background-image: url("../../../../assets/search.svg");
+  background-repeat: no-repeat;
+}
+
+.charges-content-background-body {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.charges-content-body {
+  display: flex;
+  padding: 12px 23px;
+}
+
+.charges-content-body-fields {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 100%;
+  justify-content: center;
+}
+
+.charges-content-body-fields-list {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 16px 0;
+}
+
+.charges-content-body-fields-list,
+.charges-content-body-fields-list-values {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  gap: 10px;
+}
+
+.charges-content-body-fields-list > div,
+.charges-content-body-fields-list-values > div {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.charges-content-body-fields-list-values {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  height: 40px;
+  padding: 0 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.charges-content-body-fields-list-values-images {
+  display: flex;
+  gap: 20px;
+}
+
+.charges-content-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  border: none;
+  margin: 0 0 10px 0;
+}
+
+.charges-content-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px 0px 20px 0px;
+}
+
+.charges-content-pagination button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #da0175;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.charges-outofdate {
+  display: flex;
+  height: 19px;
+  width: 67px;
+  justify-content: center;
+  align-items: center;
+  color: #971d1d;
+  background-color: #ffefef;
+  border-radius: 10px;
+}
+
+.charges-paid {
+  display: flex;
+  height: 19px;
+  width: 49px;
+  justify-content: center;
+  align-items: center;
+  color: #1fa7af;
+  background-color: #eef6f6;
+  border-radius: 10px;
+}
+
+.charges-pending {
+  display: flex;
+  height: 19px;
+  width: 77px;
+  justify-content: center;
+  align-items: center;
+  color: #c5a605;
+  background-color: #fcf6dc;
+  border-radius: 10px;
+}
+
+.charges-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.charges-table-header,
+.charges-table-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr 4fr 0.2fr 0.2fr;
+  gap: 16px;
+  padding: 12px 16px;
+  align-items: center;
+}
+
+.charges-table-header {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  border-radius: 8px 8px 0 0;
+}
+
+.charges-table-row {
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.charges-table-row:last-child {
+  border-radius: 0 0 8px 8px;
+}

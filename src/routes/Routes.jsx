@@ -14,6 +14,7 @@ import SignUpConfirmation from "../pages/signup-confirmation/SignUpConfirmation"
 import LogIn from "../pages/login/LogIn";
 import Home from "../pages/home/Home";
 import Clients from "../pages/clients/Clients";
+import Charges from "../pages/charges/Charges";
 import ClientDetailsPage from "../pages/client-details/ClientDetails";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/clientes" element={<Clients />} />
               <Route path="/clientes/:id" element={<ClientDetailsPage />} />
+              <Route path="/cobrancas" element={<Charges />} />
             </Route>
           </Routes>
         </ModalStatesContext>
