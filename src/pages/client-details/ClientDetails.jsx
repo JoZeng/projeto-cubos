@@ -13,6 +13,8 @@ import ModalClientsChargesDelete from "../../components/modals/modals-sessions/m
 import { ModalClientsChargesDeleteContextProvider } from "../../components/modals/modals-sessions/modal-clients-charges-delete/ModalClientsChargesDeleteContext";
 import ModalClientsChargesEdit from "../../components/modals/modals-sessions/modal-clients-charges-edit/ModalClientsChargesEdit";
 import { ModalClientsChargesEditContextProvider } from "../../components/modals/modals-sessions/modal-clients-charges-edit/ModalClientsChargesEditContext";
+import ModalUserEdit from "../../components/modals/modals-sessions/modal-user-edit/ModalUserEdit";
+import { ModalUserEditProvider } from "../../components/modals/modals-sessions/modal-user-edit/ModalUserEditContext";
 
 export default function ClientDetails() {
   const {
@@ -32,6 +34,10 @@ export default function ClientDetails() {
     setOpenModalChargesDelete,
     handleModalChargesDelete,
     closeModalChargesDelete,
+    openModalUserEdit,
+    setOpenModalUserEdit,
+    handleModalUserEdit,
+    closeModalUserEdit,
   } = useModalStates();
 
   const { refreshTrigger, handleUpdateData } = useRefreshTrigger();
@@ -40,7 +46,11 @@ export default function ClientDetails() {
     <div className="clients-details-page">
       <SideBar />
       <div className="clients-details-page-content">
-        <Header text={"Cobranças"} text2={"Detalhes do cliente"} />
+        <Header
+          text={"Cobranças"}
+          text2={"Detalhes do cliente"}
+          handleModalUserEdit={handleModalUserEdit}
+        />
         <hr />
         <ClientDetailsContentContextProvider
           refreshTrigger={refreshTrigger}
@@ -88,6 +98,14 @@ export default function ClientDetails() {
       >
         <ModalClientsChargesDelete />
       </ModalClientsChargesDeleteContextProvider>
+
+      <ModalUserEditProvider
+        openModal={openModalUserEdit}
+        closedModal={setOpenModalUserEdit}
+        closedModalButton={closeModalUserEdit}
+      >
+        <ModalUserEdit />
+      </ModalUserEditProvider>
     </div>
   );
 }

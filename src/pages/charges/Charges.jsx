@@ -8,6 +8,8 @@ import { ModalClientsChargesEditContextProvider } from "../../components/modals/
 import ModalClientsChargesEdit from "../../components/modals/modals-sessions/modal-clients-charges-edit/ModalClientsChargesEdit";
 import ModalClientsChargesDelete from "../../components/modals/modals-sessions/modal-clients-charges-delete/ModalClientsChargesDelete";
 import { ModalClientsChargesDeleteContextProvider } from "../../components/modals/modals-sessions/modal-clients-charges-delete/ModalClientsChargesDeleteContext";
+import ModalUserEdit from "../../components/modals/modals-sessions/modal-user-edit/ModalUserEdit";
+import { ModalUserEditProvider } from "../../components/modals/modals-sessions/modal-user-edit/ModalUserEditContext";
 
 export default function Charges() {
   const {
@@ -21,6 +23,11 @@ export default function Charges() {
     handleModalChargesDelete,
     closeModalChargesDelete,
 
+    openModalUserEdit,
+    setOpenModalUserEdit,
+    handleModalUserEdit,
+    closeModalUserEdit,
+
     handleUpdateData,
   } = useModalStates();
   console.log({
@@ -31,7 +38,7 @@ export default function Charges() {
     <div className="charges-page">
       <SideBar />
       <div className="charges-page-content">
-        <Header text={"Cobranças"} />
+        <Header text={"Cobranças"} handleModalUserEdit={handleModalUserEdit} />
         <hr />
         <ChargesContentProvider>
           <ChargesContent
@@ -56,6 +63,14 @@ export default function Charges() {
       >
         <ModalClientsChargesDelete />
       </ModalClientsChargesDeleteContextProvider>
+
+      <ModalUserEditProvider
+        openModal={openModalUserEdit}
+        closedModal={setOpenModalUserEdit}
+        closedModalButton={closeModalUserEdit}
+      >
+        <ModalUserEdit />
+      </ModalUserEditProvider>
     </div>
   );
 }

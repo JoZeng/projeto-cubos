@@ -3,9 +3,9 @@ import { createContext, useContext, useState } from "react";
 const ModalStatesContext = createContext();
 
 export default function ModalStatesProvider({ children }) {
-  const [openModalUserEdit, setOpenModaUserEdit] = useState(false);
-  const handleModaUserEdit = () => setOpenModaUserEdit(true);
-  const closeModaUserEdit = () => setOpenModaUserEdit(false);
+  const [openModalUserEdit, setOpenModalUserEdit] = useState(false);
+  const handleModalUserEdit = () => setOpenModalUserEdit(true);
+  const closeModalUserEdit = () => setOpenModalUserEdit(false);
 
   const [openModalClientsAdd, setOpenModalClientsAdd] = useState(false);
   const handleModalClientsAdd = () => setOpenModalClientsAdd(true);
@@ -35,9 +35,9 @@ export default function ModalStatesProvider({ children }) {
     <ModalStatesContext.Provider
       value={{
         openModalUserEdit,
-        setOpenModaUserEdit,
-        handleModaUserEdit,
-        closeModaUserEdit,
+        setOpenModalUserEdit,
+        handleModalUserEdit,
+        closeModalUserEdit,
 
         openModalClientsAdd,
         setOpenModalClientsAdd,

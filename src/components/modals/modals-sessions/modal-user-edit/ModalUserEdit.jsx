@@ -15,7 +15,6 @@ export default function ModalUserEdit() {
     errors,
     isSubmitting,
     isSubmittedSuccessfully,
-    errorMessage,
     openModalSucess,
   } = useModalUserEditContext();
 
@@ -67,6 +66,9 @@ export default function ModalUserEdit() {
                 mask="000.000.000-00"
                 className="input"
                 placeholder="Digite seu CPF"
+                value={field.value}
+                onAccept={(value) => field.onChange(value)}
+                inputRef={field.ref}
               />
             )}
           />
@@ -84,10 +86,12 @@ export default function ModalUserEdit() {
             control={control}
             render={({ field }) => (
               <IMaskInput
-                {...field}
                 mask="00-00000.0000"
                 className="input"
                 placeholder="Digite seu Telefone"
+                value={field.value}
+                onAccept={(value) => field.onChange(value)}
+                inputRef={field.ref}
               />
             )}
           />

@@ -69,6 +69,7 @@ export const ModalUserEditProvider = ({
   }, [isSubmittedSuccessfully]);
 
   const onSubmit = async (data) => {
+    console.log("Form data submitted:", data);
     if (isSubmitting || isSubmittedSuccessfully) return;
 
     const { name, email, cpf, cel, password } = data;

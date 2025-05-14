@@ -14,10 +14,10 @@ import useRefreshTrigger from "../../hooks/useRefreshTrigger";
 
 export default function Clients() {
   const {
-    openModaUserEdit,
-    setOpenModaUserEdit,
-    handleModaUserEdit,
-    closeModaUserEdit,
+    openModalUserEdit,
+    setOpenModalUserEdit,
+    handleModalUserEdit,
+    closeModalUserEdit,
 
     openModalClientsAdd,
     setOpenModalClientsAdd,
@@ -34,7 +34,7 @@ export default function Clients() {
     <div className="clients-page">
       <SideBar />
       <div className="clients-page-content">
-        <Header text={"Clientes"} handleModalUserEdit={handleModaUserEdit} />
+        <Header text={"Clientes"} handleModalUserEdit={handleModalUserEdit} />
         <hr />
         <ClientsContentProvider
           refreshTrigger={refreshTrigger}
@@ -62,9 +62,9 @@ export default function Clients() {
         <ModalClientsChargesAdd />
       </ModalClientsChargesAddContextProvider>
       <ModalUserEditProvider
-        openModal={openModaUserEdit}
-        closedModal={setOpenModaUserEdit}
-        closedModalButton={closeModaUserEdit}
+        openModal={openModalUserEdit}
+        closedModal={setOpenModalUserEdit}
+        closedModalButton={closeModalUserEdit}
       >
         <ModalUserEdit />
       </ModalUserEditProvider>

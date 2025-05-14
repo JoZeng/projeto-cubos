@@ -66,6 +66,7 @@ export const ClientDetailsContentContextProvider = ({
   }, [id]);
 
   useEffect(() => {
+    console.log("useEffect rodou! refreshTrigger:", refreshTrigger);
     if (id) {
       fetchClientDetails();
       fetchCobrancas();

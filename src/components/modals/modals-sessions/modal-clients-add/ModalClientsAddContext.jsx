@@ -34,6 +34,7 @@ export const ModalClientsAddProvider = ({
   openModal,
   closedModal,
   closedModalButton,
+  onUpdate, // Recebe o onUpdate do componente pai
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [openModalSucess, setOpenModalSucess] = useState(false);
@@ -101,6 +102,9 @@ export const ModalClientsAddProvider = ({
           setOpenModalSucess(false);
           closedModal();
           toast.success("Cliente adicionado com sucesso!");
+
+          // Chama o onUpdate para atualizar a página após a adição
+          if (onUpdate) onUpdate();
         }, 3000);
       }
     } catch (error) {

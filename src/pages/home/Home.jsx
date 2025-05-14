@@ -9,10 +9,10 @@ import HomeContentContextProvider from "../../components/home/home-content/HomeC
 
 export default function Home() {
   const {
-    openModaUserEdit,
-    setOpenModaUserEdit,
-    handleModaUserEdit,
-    closeModaUserEdit,
+    openModalUserEdit,
+    setOpenModalUserEdit,
+    handleModalUserEdit,
+    closeModalUserEdit,
   } = useModalStates();
   return (
     <div className="home-page">
@@ -20,12 +20,12 @@ export default function Home() {
       <div className="home-page-content">
         <Header
           text={"Resumo das cobranças"}
-          handleModalUserEdit={handleModaUserEdit}
+          handleModalUserEdit={handleModalUserEdit}
         />
         <ModalUserEditProvider
-          openModal={openModaUserEdit}
-          closedModal={setOpenModaUserEdit}
-          closedModalButton={closeModaUserEdit}
+          openModal={openModalUserEdit}
+          closedModal={setOpenModalUserEdit}
+          closedModalButton={closeModalUserEdit}
         >
           <ModalUserEdit />
         </ModalUserEditProvider>

@@ -19,36 +19,27 @@ const SideBar = ({}) => {
     <div className="sidebar">
       <ul className="list-content">
         <li className={isHomeActive && "isActive"}>
-          <button>
-            <img
-              src={isHomeActive ? HomeRed : Home}
-              alt="home"
-              onClick={() => navigate("/home")}
-            />
+          <button onClick={() => navigate("/home")}>
+            <img src={isHomeActive ? HomeRed : Home} alt="home" />
             Home
           </button>
         </li>
         <li
           className={(isClientsActive || isClientDetailsActive) && "isActive"}
         >
-          <button>
+          <button onClick={() => navigate("/clientes")}>
             <img
               src={
                 isClientsActive || isClientDetailsActive ? ClientsRed : Clients
               }
               alt="clients"
-              onClick={() => navigate("/clientes")}
             />
             Clientes
           </button>
         </li>
         <li className={isChargesActive && "isActive"}>
-          <button>
-            <img
-              src={isChargesActive ? ChargedRed : Charges}
-              alt="charges"
-              onClick={() => navigate("/cobrancas")}
-            />
+          <button onClick={() => navigate("/cobrancas")}>
+            <img src={isChargesActive ? ChargedRed : Charges} alt="charges" />
             Cobranças
           </button>
         </li>
