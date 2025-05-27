@@ -20,18 +20,18 @@ export default function ChargesContent({
     loading,
     formatDate,
   } = useCharges();
+  // const filteredCharges = Array.isArray(charges)
+  //   ? search
+  //     ? charges.filter(
+  //         (charge) =>
+  //           charge.cliente_nome?.toLowerCase().includes(search.toLowerCase()) ||
+  //           charge.email?.toLowerCase().includes(search.toLowerCase()) ||
+  //           charge.cpf?.includes(search)
+  //       )
+  //     : charges
+  //   : [];
 
-  const filteredCharges = Array.isArray(charges)
-    ? search
-      ? charges.filter(
-          (charge) =>
-            charge.cliente_nome?.toLowerCase().includes(search.toLowerCase()) ||
-            charge.email?.toLowerCase().includes(search.toLowerCase()) ||
-            charge.cpf?.includes(search)
-        )
-      : charges
-    : [];
-
+  const filteredCharges = charges;
   console.log("charges do contexto:", charges);
   return (
     <div className="charges-content">

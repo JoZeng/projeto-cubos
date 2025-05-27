@@ -39,13 +39,14 @@ export const ChargesContentProvider = ({ children, refreshTrigger }) => {
     setLoading(true);
     try {
       const token = getItem("token");
+      console.log("Token de autenticação:", token); // Verifique se o token não é null ou undefined
       const response = await api.get(`/cobrancas?pages=${page}&limite=10`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       const fetchedCharges = response.data;
-      setCharges(fetchedCharges.charges);
-      setTotalPages(fetchedCharges.totalPages);
+      setCharges(fetchedCharges);
+      setCharges(response.data);
     } catch (error) {
       console.error(
         "Erro ao buscar cobranças:",

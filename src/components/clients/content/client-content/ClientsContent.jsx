@@ -99,6 +99,7 @@ export default function ClientsContent({
                         onClick={() => {
                           openModalChargesAdd();
                           setItem("clientId", cliente.id);
+                          setItem("clientName", cliente.nome);
                         }}
                         src={chargesAdd}
                         alt="chargesAdd"
