@@ -1,12 +1,57 @@
-# React + Vite
+<p align="center"> <img src="src/assets/cubos1.png" alt="Imagem Cubo 1" style="margin: 5px;"> <img src="src/assets/cubos2.png" alt="Imagem Cubo 2" style="margin: 5px;"> <img src="src/assets/cubos3.png" alt="Imagem Cubo 3" style="margin: 5px;"> </p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+<img src="src/assets/cubos4.png" alt="Imagem Cubo 4" style="margin: 5px;">
+<img src="src/assets/cubos5.png" alt="Imagem Cubo 5" style="margin: 5px;">
+<img src="src/assets/cubos6.png" alt="Imagem Cubo 6" style="margin: 5px;">
+</p>
 
-Currently, two official plugins are available:
+**Meu Projeto Pessoal: Cubos - React**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este repositório contém um projeto pessoal desenvolvido com Node.JS (React) no back-end e JavaScript no front-end. O objetivo deste projeto foi criar um sistema de CRM (Customer Relationship Management) para treinar operações CRUD (Create, Read, Update, Delete) em entidades como Clientes, Cobranças e Usuários.
 
-## Expanding the ESLint configuration
+Tecnologias Utilizadas:
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Back-end: Node.JS (React)
+
+Eloquent ORM para interação com o banco de dados.
+
+Sistema de roteamento e controladores.
+
+Autenticação e autorização (se aplicável).
+
+APIs RESTful para comunicação com o front-end (se aplicável).
+
+Front-end: React
+
+Ferramentas de Build: Vite
+
+Estilização: Tailwind CSS
+
+Requisições HTTP: Axios
+
+Máscaras de Input: IMask e Inputmask
+
+Manipulação do DOM para interatividade.
+
+Requisições assíncronas (AJAX/Fetch API) para consumir as APIs do Node.JS.
+
+Funcionalidades Principais:
+
+Gerenciamento de Clientes: Criação, visualização, edição e exclusão de registros de clientes.
+
+Gestão de Cobranças: Adição, consulta, atualização e remoção de informações de cobranças associadas aos clientes.
+
+Administração de Usuários: Cadastro, listagem e gerenciamento de usuários do sistema.
+
+Autenticação de usuários (registro e login).
+
+Filtragem e busca de dados.
+
+Interface responsiva para diferentes dispositivos.
+
+### **Como Rodar o Projeto Localmente:**
+
+1. **Clone o repositório:**  
+   git clone git@github.com:JoZeng/projeto-cubos.git
+   cd projeto-cubos
