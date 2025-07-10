@@ -50,8 +50,11 @@ Filtragem e busca de dados.
 
 Interface responsiva para diferentes dispositivos.
 
+**Link do projeto:**
+https://projeto-cubos.vercel.app/
+
 ### **Como Rodar o Projeto Localmente:**
 
-1. **Clone o repositório:**  
-   git clone git@github.com:JoZeng/projeto-cubos.git
-   cd projeto-cubos
+**Clone o repositório:**  
+ git clone git@github.com:JoZeng/projeto-cubos.git
+cd projeto-cubos
